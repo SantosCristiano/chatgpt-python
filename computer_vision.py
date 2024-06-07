@@ -3,10 +3,12 @@ import numpy as np
 import tensorflow as tf
 
 # Load the COCO labels
+# https://github.com/pjreddie/darknet/blob/master/data/coco.names
 LABELS = open('coco.names').read().strip().split("\n")
 
 # Load the TensorFlow model
-model = tf.saved_model.load('ssd_mobilenet_v2/saved_model')
+# https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
+model = tf.saved_model.load('ssd_mobilenet_v2_320x320_coco17_tpu-8/saved_model')
 
 # Load an image
 image = cv2.imread('image.jpg')
